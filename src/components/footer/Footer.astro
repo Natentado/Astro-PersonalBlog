@@ -1,0 +1,57 @@
+---
+import style from "./styles.module.scss";
+import LogoTwitter from "@assets/logo-x.svg";
+import LogoGitHub from "@assets/logo-github.svg";
+import LogoLinkedin from "@assets/logo-linkedin.svg";
+import LogoFrontEndMentor from "@assets/logo-frontend-mentor.svg";
+---
+
+<footer class={style.footer}>
+    <hr />
+    <div>
+        <p class="text-preset-8">
+            Code by 
+            <a 
+                href="https://www.linkedin.com/in/nathan-molina/" 
+                rel="author"
+            >
+                Natentado
+            </a>
+        </p>
+
+        <nav>
+            <a href="/" target="_blank">
+                <img 
+                    src={LogoTwitter.src}
+                    alt="Twitter profile"
+                    width="16px"
+                    height="16px"
+                />
+            </a>
+            <a href="/" target="_blank">
+                <img 
+                    src={LogoGitHub.src}
+                    alt="Github profile"
+                    width="16px"
+                    height="16px"
+                />
+            </a>
+            <a href="/" target="_blank">
+                <img 
+                    src={LogoLinkedin.src}
+                    alt="Linkedin profile"
+                    width="16px"
+                    height="16px"
+                />
+            </a>
+            <a href="/" target="_blank">
+                <img 
+                    src={LogoFrontEndMentor.src}
+                    alt="Front End Mentor profile"
+                    width="16px"
+                    height="16px"
+                />
+            </a>
+        </nav>
+    </div>
+</footer>

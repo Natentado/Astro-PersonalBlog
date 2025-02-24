@@ -1,5 +1,8 @@
 ---
-import '../styles/global.scss';
+import Footer from '@components/footer/Footer.astro';
+import Header from '@components/header/Header.astro';
+import '@styles/global.scss';
+
 ---
 
 <!doctype html>
@@ -13,8 +16,26 @@ import '../styles/global.scss';
 		<title>Personal Blog</title>
 	</head>
 	<body>
-		<main style={{display: "flex", flexDirection: "column", gap: "64px", width: "100%", maxWidth: "640px", margin: "0 auto"}}>	
-			<slot />
-		</main>
+		<div style={{
+			display: "flex",
+			flexDirection: "column",
+			width: "100%",
+			maxWidth: "640px", 
+			margin: "0 auto",
+		}}>
+			<Header />
+			<main style={{
+				display: "flex", 
+				flexDirection: "column", 
+				gap: "64px", 
+				width: "calc(100% - 8px)",
+				margin: "0 auto", 
+				padding: "0 10px", 
+				border: "1px solid #EFEDEB"
+			}}>
+				<slot />
+				<Footer />
+			</main>
+		</div>
 	</body>
 </html>
