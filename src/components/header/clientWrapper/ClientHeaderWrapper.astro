@@ -1,0 +1,25 @@
+---
+import ThemeToogle from "@components/__preact/themeToogle";
+import style from "./style.module.scss";
+import MenuToogle from "@components/__preact/menuToogle";
+---
+
+<div class={style.clientHeaderContainer}>
+    <nav class={style.navBar}>
+        <a href="/" class="text-preset-8" data-astro-prefetch>
+            Home
+        </a>
+        <a href="/blog" class="text-preset-8" data-astro-prefetch>
+            Blog
+        </a>
+        <a href="/about" class="text-preset-8" data-astro-prefetch>
+            About
+        </a>
+        <a href="/newsletter" class="text-preset-8" data-astro-prefetch>
+            Newsletter
+        </a>
+    </nav>
+
+    <MenuToogle client:load />
+    <ThemeToogle client:load />
+</div>

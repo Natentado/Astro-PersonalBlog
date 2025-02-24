@@ -1,0 +1,21 @@
+---
+import style from "./styles.module.scss";
+import { Image } from 'astro:assets';
+import ProfilePicture from "@assets/image-avatar.jpg";
+import ClientHeaderWrapper from "@components/header/clientWrapper/ClientHeaderWrapper.astro"
+---
+
+<header class={style.header}>
+    <a href="/">
+        <Image 
+            src={ProfilePicture}
+            alt="Profile picture link to home page"
+            width={40}
+            height={40}
+            loading="eager"
+            priority
+        />
+    </a>
+
+    <ClientHeaderWrapper />
+</header>

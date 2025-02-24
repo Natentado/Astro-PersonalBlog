@@ -1,7 +1,12 @@
 ---
+import Button from '@components/__preact/button';
 import Layout from '../layouts/Layout.astro';
+import Input from '@components/__preact/input';
+import Header from "@components/header/Header.astro";
 ---
 
 <Layout>
-	<p class="textPresetDM">oh damn</p>
+	<Header />
+	<Input client:load />
+	<Button client:load>Primary Button</Button>
 </Layout>

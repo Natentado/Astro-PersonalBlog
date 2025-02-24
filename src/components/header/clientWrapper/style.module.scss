@@ -1,0 +1,40 @@
+.clientHeaderContainer{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .navBar{
+        display: flex;
+        align-items: center;
+        gap: 24px;
+    
+        a{
+            display: none;
+            padding: 3px;
+            border-top: 3px solid transparent;
+            border-bottom: 3px solid transparent;
+            color: var(--neutral-700);
+            text-decoration: none;
+        }
+    }
+
+    @media (min-width: 767px) {
+        .navBar a{
+            display: block;
+        }
+    }
+    
+    @media (min-width: 1024px) {
+        .navBar a{
+            &:hover{
+                border-bottom: 3px solid var(--blue-500);
+            }
+
+            &:focus{
+                border-bottom: 3px solid transparent;
+                border-radius: 8px;
+                box-shadow: 0 0 4px var(--blue-800);
+            }
+        }
+    }
+}

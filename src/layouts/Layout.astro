@@ -9,9 +9,12 @@ import '../styles/global.scss';
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content="Know everything about me, my career path, and sign in on my newsletter. All this and more in my personal blog.">
 		<title>Personal Blog</title>
 	</head>
 	<body>
-		<slot />
+		<main style={{display: "flex", flexDirection: "column", gap: "64px", width: "100%", maxWidth: "640px", margin: "0 auto"}}>	
+			<slot />
+		</main>
 	</body>
 </html>

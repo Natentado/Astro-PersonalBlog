@@ -1,0 +1,20 @@
+.header{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px;
+    border: 1px solid var(--neutral-200);
+    border-radius: 10px;
+    background-color: var(--neutral-0);
+    box-shadow: 0 16px 10px #7B7B7B03;
+
+    > a{
+        width: 40px;
+        height: 40px;
+
+        img{
+            border-radius: 10px;
+        }
+    }
+}
