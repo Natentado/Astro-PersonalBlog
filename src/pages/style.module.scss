@@ -61,6 +61,18 @@
                 display: flex;
                 flex-direction: column;
                 gap: 8px;
+
+                a {
+                    text-decoration: unset;
+
+                    h4{
+                        color: var(--neutral-700);
+                    }
+                }
+
+                p{
+                    color: var(--neutral-600);
+                }
             }
         }
 

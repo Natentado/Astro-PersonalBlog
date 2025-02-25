@@ -1,0 +1,45 @@
+---
+import showdown from "showdown";
+import style from "./style.module.scss"
+import { getCollection } from 'astro:content';
+import type { IPost } from "../../types";
+import Layout from '@layouts/Layout.astro';
+
+// 1. Generate a new path for every collection entry
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+
+  return posts.map((post) => ({
+    params: { slug: post.data.slug },
+    props: { post },
+  }));
+}
+
+// 2. For your template, you can get the entry directly from the prop
+const { data }: {data: IPost} = Astro.props.post;
+
+const parsedPublishedData = new Date(Date.parse(data.publishedAt))
+const formattedPublishData = new Intl.DateTimeFormat("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+}).format(parsedPublishedData);
+
+const converter = new showdown.Converter();
+---
+
+<Layout>
+    <article class={style.blogPost}>
+        <h1 class="text-preset-1">
+            {data.title}
+        </h1>
+
+        <p class="text-preset-8-italic">
+            {formattedPublishData}
+        </p>
+
+        <>
+            {data.content}
+        </>
+    </article>
+</Layout>

@@ -4,7 +4,7 @@
     gap: 24px;
     margin-top: 32px;
 
-    > section:nth-child(1){
+    > section:first-child{
         display: flex;
         flex-direction: column;
         gap: 6px;
@@ -24,6 +24,32 @@
 
         p{
             color: var(--neutral-600);
+        }
+    }
+
+    > section:last-child ul{
+        display: flex;
+        flex-direction: column;
+
+        li{
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 20px 0;
+            border-top: 1px solid var(--neutral-200);
+            list-style: unset;
+
+            a{
+                text-decoration: unset;
+
+                h4{
+                    color: var(--neutral-700);
+                }
+            }
+
+            p{
+                color: var(--neutral-600);
+            }
         }
     }
 }

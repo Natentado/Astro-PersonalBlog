@@ -55,7 +55,9 @@ const posts: Array<{data: IPost}> = await getCollection('blog');
                                     {data.title}
                                 </h4>
                             </a>
-                            <p>{formattedPublishData}</p>
+                            <p class="text-preset-8-italic">
+                                {formattedPublishData}
+                            </p>
                         </li>
                     )
                 })}
