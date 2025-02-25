@@ -1,3 +1,27 @@
 ---
+import style from "./style.module.scss";
+import Layout from '@layouts/Layout.astro';
+import Form from "@components/__preact/form";
 ---
-<h1>NewsLetter Page</h1>
+
+<Layout>
+    <article class={style.newsletterPage}>
+        <section class={style.presentation}>
+            <h1 class="text-preset-2">Newsletter</h1>
+            <p class="text-preset-7">
+                Want to stay updated on my latest articles, coding tutorials, and personal adventures? 
+                Sign up for my newsletter! It's a simple way to keep track of new posts and occasional coding tips I discover. 
+                Just drop your email in the sign-up box, and I'll send you updates whenever there's something new to share.
+            </p>
+            <b class="text-preset-5">I'd love to have you along for the ride and also hear about your own journey!</b>
+        </section>
+
+        <section class={style.subscription}>
+            <Form client:load />
+            <p class="text-preset-8">
+                Unsubscribe anytime. 
+                No spam, I promise 🙂
+            </p>
+        </section>
+    </article>
+</Layout>

@@ -1,0 +1,62 @@
+.aboutPage{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 32px;
+
+    .aboutMe{
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        h1{
+            position: relative;
+            width: fit-content;
+            color: var(--neutral-700);
+
+            span{
+                position: absolute;
+                bottom: 5px;
+                left: 0px;
+                width: 100%;
+                height: 8px;
+                background-color: var(--blue-500);
+                z-index: -1;
+            }
+        }
+
+        picture{
+            display: flex;
+            width: 100%;
+            
+            img{
+                width: 100%;
+                border-radius: 12px;
+                object-fit: cover;
+            }
+        }
+
+        p, b{
+            color: var(--neutral-600);
+        }
+        
+        div{
+            color: var(--neutral-600);
+            
+            ul{
+                list-style: inside;
+    
+                li::marker{
+                    font-size: 12px;
+                    color: var(--neutral-600);
+                }
+            }
+        }
+    }
+
+    .followMe{
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+}

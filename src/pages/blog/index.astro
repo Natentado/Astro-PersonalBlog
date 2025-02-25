@@ -1,3 +1,25 @@
 ---
+import style from "./style.module.scss";
+import Layout from '@layouts/Layout.astro';
 ---
-<h1>Blog Page</h1>
+
+<Layout>
+    <article class={style.blogpage}>
+        <section>
+            <h1 class="text-preset-2">
+                My Articles
+                <span />
+            </h1>
+
+            <p class="text-preset-7">
+                Below are all my recent blog posts. Click on any title to read the full article.
+            </p>
+        </section>
+
+        <section>
+            <ul>
+                
+            </ul>
+        </section>
+    </article>
+</Layout>
