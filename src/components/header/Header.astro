@@ -2,7 +2,7 @@
 import style from "./styles.module.scss";
 import { Image } from 'astro:assets';
 import ProfilePicture from "@assets/image-avatar.jpg";
-import ClientHeaderWrapper from "@components/header/clientWrapper/ClientHeaderWrapper.astro"
+import ClientHeaderWrapper from "@components/header/ClientHeaderWrapper.astro"
 ---
 
 <header class={style.header}>
@@ -17,5 +17,21 @@ import ClientHeaderWrapper from "@components/header/clientWrapper/ClientHeaderWr
         />
     </a>
 
-    <ClientHeaderWrapper />
+    <div class={style.headerNavigation}>
+        <nav class={style.navBar}>
+            <a href="/" class="text-preset-8" data-astro-prefetch>
+                Home
+            </a>
+            <a href="/blog" class="text-preset-8" data-astro-prefetch>
+                Blog
+            </a>
+            <a href="/about" class="text-preset-8" data-astro-prefetch>
+                About
+            </a>
+            <a href="/newsletter" class="text-preset-8" data-astro-prefetch>
+                Newsletter
+            </a>
+        </nav>
+        <ClientHeaderWrapper />
+    </div>
 </header>

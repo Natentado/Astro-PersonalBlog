@@ -1,7 +1,11 @@
 ---
+import { getCollection } from 'astro:content';
 import SocialMedias from "@components/socialMedias/SocialMedias.astro";
 import style from "./style.module.scss";
 import Layout from '@layouts/Layout.astro';
+import type {IPost} from "../types"
+
+const posts: Array<{data: IPost}> = await getCollection('blog');
 ---
 
 <Layout>
@@ -23,7 +27,7 @@ import Layout from '@layouts/Layout.astro';
                 Welcome to my corner of the internet, and thanks for stopping by!
             </p>
             <SocialMedias />
-        </section>
+        </div>
 
         <hr/>
 
@@ -32,6 +36,30 @@ import Layout from '@layouts/Layout.astro';
                 Latest Articles
                 <span />
             </h2>
+
+            <ul>
+                {posts.map(({data}, index) => {
+                    if(index >= 5) return;
+
+                    const parsedPublishedData = new Date(Date.parse(data.publishedAt))
+                    const formattedPublishData = new Intl.DateTimeFormat("en-US", {
+                        month: "long",
+                        day: "numeric",
+                        year: "numeric",
+                    }).format(parsedPublishedData);
+
+                    return (
+                        <li>
+                            <a href={`/posts/${data.slug}`}>
+                                <h4 class="text-preset-5">
+                                    {data.title}
+                                </h4>
+                            </a>
+                            <p>{formattedPublishData}</p>
+                        </li>
+                    )
+                })}
+            </ul>
 
             <a href="/blog" class="text-preset-6">
                 View all articles
