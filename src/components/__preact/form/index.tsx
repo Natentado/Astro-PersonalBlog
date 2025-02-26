@@ -1,16 +1,17 @@
 import style from "./style.module.scss";
-import Input from "@components/__preact/input";
+import Input, { type StatusProps } from "@components/__preact/input";
 import Button from "@components/__preact/button";
 import { useState, type FormEvent } from "preact/compat";
 
 const Form = () => {
-    const [isPending, setIsPending] = useState(false)
+    const [ isPending, setIsPending ] = useState(false);
+    const [ status, setStatus ] = useState<StatusProps>(undefined);
 
     async function subscribe() {
-        return new Promise((resolve, reject) => {
+        return new Promise(_ => {
             setTimeout(() => {
                 setIsPending(false);
-                resolve("OK");
+                return setStatus("valid");
             }, 1000);
         });
     }
@@ -20,13 +21,25 @@ const Form = () => {
         setIsPending(true);
         const formElement = e.target as HTMLFormElement;
         const formData = new FormData(formElement);
+        const emailAddress = formData.get("emailAddress") as string;
+
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        
+        if(!emailAddress || !emailRegex.test(emailAddress)){
+            setIsPending(false);
+            return setStatus("error");
+        };
 
         return await subscribe();
     };
 
     return (
         <form class={style.form} onSubmit={e => formSubmit(e)}>
-            <Input />
+            <Input 
+                disabled={!!isPending} 
+                status={status} 
+                setStatus={setStatus} 
+            />
             <Button disabled={!!isPending} type="submit">
                 Stay updated
             </Button>

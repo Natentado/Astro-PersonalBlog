@@ -1,15 +1,18 @@
 import style from "./styles.module.scss";
-import { useState } from 'preact/hooks';
 import IconError from "@assets/icon-error.svg"; 
-import IconSuccess from "@assets/icon-error.svg"; 
+import IconSuccess from "@assets/icon-success.svg"; 
 import type { JSX } from 'preact';
+import type { SetStateAction } from "preact/compat";
+import type { Dispatch } from "preact/hooks";
 
-interface IInput extends JSX.InputHTMLAttributes<HTMLInputElement> {};
+export type StatusProps = "valid" | "error" | undefined;
 
-type StatusProps = "valid" | "error" | undefined;
+interface IInput extends JSX.InputHTMLAttributes<HTMLInputElement> {
+    status: StatusProps;
+    setStatus: Dispatch<SetStateAction<StatusProps>>
+};
 
-const Input = (props: IInput) => {
-    const [status, setStatus] = useState<StatusProps>(undefined);
+const Input = ({status, setStatus, ...rest}: IInput) => {
     
     return (
         <label 
@@ -18,11 +21,12 @@ const Input = (props: IInput) => {
         >
             Email Address
             <input 
-                {...props} 
+                {...rest} 
                 id="emailAddress"
                 name="emailAddress"
                 class="text-preset-7"
                 placeholder="email@example.com"
+                onFocus={() => setStatus(undefined)}
             />
             {!!status ?
                 <span className="text-preset-8">
