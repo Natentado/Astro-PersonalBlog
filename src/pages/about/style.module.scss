@@ -42,8 +42,13 @@
         
         div{
             color: var(--neutral-600);
+
+            > p:not(p:first-child){
+                margin-top: 24px;
+            }
             
             ul{
+                margin-top: 24px;
                 list-style: inside;
     
                 li::marker{

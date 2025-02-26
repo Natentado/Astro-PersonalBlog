@@ -17,4 +17,8 @@
     &:focus{
         box-shadow: 0 0 4px var(--blue-800);
     }
+
+    &:disabled{
+        background-color: #C0C0C0;
+    }
 }
