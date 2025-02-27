@@ -1,4 +1,7 @@
 ---
+import '@fontsource-variable/dm-sans';
+import dmSansWoff2 from '@fontsource-variable/dm-sans/files/dm-sans-latin-wght-normal.woff2?url';
+import '@fontsource-variable/fira-code';
 import '@styles/global.scss';
 import Footer from '@components/footer/Footer.astro';
 import Header from '@components/header/Header.astro';
@@ -11,6 +14,7 @@ import style from './style.module.scss';
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="preload" as="font" type="font/woff2" href={dmSansWoff2} crossorigin="anonymous" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content="Know everything about me, my career path, and sign in on my newsletter. All this and more in my personal blog.">
 		<title>Personal Blog</title>
