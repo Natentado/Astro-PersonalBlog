@@ -6,11 +6,11 @@ interface IButton extends JSX.InputHTMLAttributes<HTMLButtonElement> {
     children: ReactNode;
 };
 
-const Button = (props: IButton) => {
+const Button = ({children, ...rest}: IButton) => {
 
     return (
-        <button {...props} class={`text-preset-6 ${style.button}`} >
-            {props.children}
+        <button {...rest} class={`text-preset-6 ${style.button}`}>
+            {children}
         </button>
     )
 };

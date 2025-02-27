@@ -1,3 +1,12 @@
+:global(html.dark) .themeToogle{
+    border: 1px solid var(--neutral-700);
+    background-color: var(--neutral-900);
+
+    img{
+        filter: brightness(10);
+    }
+}
+
 .themeToogle{
     display: flex;
     justify-content: center;

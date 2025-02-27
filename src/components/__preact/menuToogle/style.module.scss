@@ -1,3 +1,17 @@
+:global(html.dark) .mobileHeader{
+    path{
+        stroke: var(--neutral-0);
+    }
+
+    &.menuOpened{
+        background-color: var(--neutral-0);
+
+        path{
+            stroke: var(--neutral-900);
+        }
+    }
+}
+
 .mobileHeader{
     display: flex;
     justify-content: center;
@@ -17,7 +31,7 @@
         background-color: var(--neutral-700);
 
         path{
-            stroke: #FFF;
+            stroke: var(--neutral-0);
         }
     }
 
@@ -26,9 +40,23 @@
     }
 }
 
+:global(html.dark) .mobileNav{
+    background-color: var(--neutral-800);
+    border: 1px solid var(--neutral-700);
+
+    a{
+        border-bottom: 1px solid var(--neutral-700);
+        color: var(--neutral-400);
+
+        &:last-child{
+            border-bottom: 1px solid transparent;
+        }
+    }
+}
+
 .mobileNav{
     position: absolute;
-    top: 66px;
+    top: 60px;
     left: 0;
     display: flex;
     flex-direction: column;
@@ -36,10 +64,10 @@
     padding: 12px;
     border: 1px solid var(--neutral-200);
     border-radius: 10px;
-    background-color: #FFF;
+    background-color: var(--neutral-0);
     transform: translateY(-18px);
     animation: fadeDown 0.3s ease forwards;
-    z-index: 9;
+    z-index: 999;
 
     a{
         padding: 6px 0;
