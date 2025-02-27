@@ -20,3 +20,11 @@
         }
     }
 }
+
+:global(html.dark) .socialMedias{
+    @media (min-width: 1280px) {
+        a:hover{
+            background-color: unset;
+        }
+    }
+}
