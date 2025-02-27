@@ -24,28 +24,28 @@ const { pathname } = Astro.props;
         <nav class={style.navBar}>
             <a 
                 href="/" 
-                class={`text-preset-8 ${pathname === "/" ? style.active : ""}`} 
+                class={`text-preset-8 ${pathname.includes("/") ? style.active : ""}`} 
                 data-astro-prefetch
             >
                 Home
             </a>
             <a 
                 href="/blog" 
-                class={`text-preset-8 ${pathname === "/blog" ? style.active : ""}`} 
+                class={`text-preset-8 ${pathname.includes("/blog") ? style.active : ""}`} 
                 data-astro-prefetch
             >
                 Blog
             </a>
             <a 
                 href="/about" 
-                class={`text-preset-8 ${pathname === "/about" ? style.active : ""}`}
+                class={`text-preset-8 ${pathname.includes("/about") ? style.active : ""}`}
                 data-astro-prefetch
             >
                 About
             </a>
             <a 
                 href="/newsletter" 
-                class={`text-preset-8 ${pathname === "/newsletter" ? style.active : ""}`}
+                class={`text-preset-8 ${pathname.includes("/newsletter") ? style.active : ""}`}
                 data-astro-prefetch
             >
                 Newsletter
