@@ -1,7 +1,7 @@
 import { useState } from "preact/hooks";
 import style from "./style.module.scss";
 
-const MenuToogle = () => {
+const MenuToogle = ({pathname}: {pathname: string}) => {
     const [ menuStatus, setMenuStatus ] = useState<boolean>(false);
 
     const toogleMenu = () => {
@@ -23,16 +23,28 @@ const MenuToogle = () => {
             </button>
             {menuStatus &&
                 <nav class={style.mobileNav}>
-                    <a href="/" class="text-preset-7">
+                    <a 
+                        href="/" 
+                        class={`text-preset-7 ${pathname === "/" ? style.active : ""}`}
+                    >
                         Home
                     </a>
-                    <a href="/blog" class="text-preset-7">
+                    <a 
+                        href="/blog" 
+                        class={`text-preset-7 ${pathname === "/blog" ? style.active : ""}`}
+                    >
                         Blog
                     </a>
-                    <a href="/about" class="text-preset-7">
+                    <a 
+                        href="/about" 
+                        class={`text-preset-7 ${pathname === "/about" ? style.active : ""}`}
+                    >
                         About
                     </a>
-                    <a href="/newsletter" class="text-preset-7">
+                    <a 
+                        href="/newsletter" 
+                        class={`text-preset-7 ${pathname === "/newsletter" ? style.active : ""}`}
+                    >
                         Newsletter
                     </a>
                 </nav>

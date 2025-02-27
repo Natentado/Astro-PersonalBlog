@@ -47,8 +47,8 @@
         }
     
         div{
-            width: 40px;
-            height: 40px;
+            min-width: 40px;
+            min-height: 40px;
         }
     
         @media (min-width: 767px) {
@@ -62,8 +62,10 @@
         }
         
         @media (min-width: 1024px) {
+            gap: 20px;
+
             .navBar a{
-                &:hover{
+                &:hover, &.active{
                     border-bottom: 3px solid var(--blue-500);
                 }
     

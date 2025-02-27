@@ -65,4 +65,8 @@
         flex-direction: column;
         gap: 16px;
     }
+
+    @media (min-width: 1280px) {
+        margin-top: 48px;
+    }
 }

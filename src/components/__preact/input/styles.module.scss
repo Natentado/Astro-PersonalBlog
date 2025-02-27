@@ -45,6 +45,14 @@
         align-items: center;
         gap: 8px;
     }
+
+    @media (min-width: 1280px) {
+        input:hover{
+            cursor: pointer;
+            border: 1px solid var(--neutral-300);
+            background-color: var(--neutral-200);
+        }
+    }
 }
 
 :global(html.dark) .input{

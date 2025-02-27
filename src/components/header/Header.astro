@@ -2,7 +2,10 @@
 import style from "./styles.module.scss";
 import { Image } from 'astro:assets';
 import ProfilePicture from "@assets/image-avatar.jpg";
-import ClientHeaderWrapper from "@components/header/ClientHeaderWrapper.astro"
+import ThemeToogle from "@components/__preact/themeToogle";
+import MenuToogle from "@components/__preact/menuToogle";
+
+const { pathname } = Astro.url;
 ---
 
 <header class={style.header}>
@@ -19,19 +22,40 @@ import ClientHeaderWrapper from "@components/header/ClientHeaderWrapper.astro"
 
     <div class={style.headerNavigation}>
         <nav class={style.navBar}>
-            <a href="/" class="text-preset-8" data-astro-prefetch>
+            <a 
+                href="/" 
+                class={`text-preset-8 ${pathname === "/" ? style.active : ""}`} 
+                data-astro-prefetch
+            >
                 Home
             </a>
-            <a href="/blog" class="text-preset-8" data-astro-prefetch>
+            <a 
+                href="/blog" 
+                class={`text-preset-8 ${pathname === "/blog" ? style.active : ""}`} 
+                data-astro-prefetch
+            >
                 Blog
             </a>
-            <a href="/about" class="text-preset-8" data-astro-prefetch>
+            <a 
+                href="/about" 
+                class={`text-preset-8 ${pathname === "/about" ? style.active : ""}`}
+                data-astro-prefetch
+            >
                 About
             </a>
-            <a href="/newsletter" class="text-preset-8" data-astro-prefetch>
+            <a 
+                href="/newsletter" 
+                class={`text-preset-8 ${pathname === "/newsletter" ? style.active : ""}`}
+                data-astro-prefetch
+            >
                 Newsletter
             </a>
         </nav>
-        <ClientHeaderWrapper />
+        <div>
+            <MenuToogle pathname={pathname} client:load />
+        </div>
+        <div>
+            <ThemeToogle client:only />
+        </div>
     </div>
 </header>

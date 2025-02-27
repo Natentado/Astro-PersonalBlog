@@ -106,10 +106,10 @@
             padding: 12px;
             border-radius: 12px;
             background-color: var(--neutral-200);
-
-            code{
-                
-            }
         } 
+    }
+
+    @media (min-width: 1280px) {
+        margin-top: 48px;
     }
 }

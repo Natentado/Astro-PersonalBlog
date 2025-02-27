@@ -91,4 +91,25 @@
             }
         }
     }
+
+    @media (min-width: 1280px) {
+        margin-top: 48px;
+        gap: 48px;
+
+        .articles{
+            ul li a{
+                &:hover{
+                    opacity: 0.7;
+                    text-decoration: underline;
+                    text-decoration-color: var(--neutral-700);
+                }
+            }
+
+            > a{
+                &:hover{
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
 }
