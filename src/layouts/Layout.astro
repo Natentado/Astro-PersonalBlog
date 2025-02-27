@@ -6,6 +6,7 @@ import '@styles/global.scss';
 import Footer from '@components/footer/Footer.astro';
 import Header from '@components/header/Header.astro';
 import style from './style.module.scss';
+import { ClientRouter } from 'astro:transitions';
 ---
 
 <!doctype html>
@@ -18,10 +19,11 @@ import style from './style.module.scss';
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content="Know everything about me, my career path, and sign in on my newsletter. All this and more in my personal blog.">
 		<title>Personal Blog</title>
+		<ClientRouter />
 	</head>
 	<body class={style.body}>
 		<div>
-			<Header />
+			<Header transition:persist />
 			<main>
 				<slot />
 				<Footer />
@@ -29,24 +31,26 @@ import style from './style.module.scss';
 		</div>
 	</body>
 	<script is:inline>
-		const theme = (() => {
-			if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-				return localStorage.getItem('theme');
-			};
+		document.addEventListener('astro:page-load', () => {
+			const theme = (() => {
+				if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+					return localStorage.getItem('theme');
+				};
+				
+				if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+					return 'dark';
+				};
+				
+				return 'light';
+			})();
 			
-			if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-				return 'dark';
-			};
-			
-			return 'light';
-		})();
-		
-		if (theme === 'light') {
-			document.documentElement.classList.remove('dark');
-		} else {
-			document.documentElement.classList.add('dark');
-		}
-		
-		window.localStorage.setItem('theme', theme);
+			if (theme === 'light') {
+				document.documentElement.classList.remove('dark');
+			} else {
+				document.documentElement.classList.add('dark');
+			}
+			document.addEventListener('astro:after-swap', theme);
+			window.localStorage.setItem('theme', theme);
+		})
 	</script>
 </html>
