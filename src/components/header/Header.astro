@@ -24,7 +24,7 @@ const { pathname } = Astro.props;
         <nav class={style.navBar}>
             <a 
                 href="/" 
-                class={`text-preset-8 ${pathname.includes("/") ? style.active : ""}`} 
+                class={`text-preset-8 ${pathname === "/" ? style.active : ""}`} 
                 data-astro-prefetch
             >
                 Home
