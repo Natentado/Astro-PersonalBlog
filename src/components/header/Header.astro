@@ -5,7 +5,7 @@ import ProfilePicture from "@assets/image-avatar.jpg";
 import ThemeToogle from "@components/__preact/themeToogle";
 import MenuToogle from "@components/__preact/menuToogle";
 
-const { pathname } = Astro.url;
+const { pathname } = Astro.props;
 ---
 
 <header class={style.header}>

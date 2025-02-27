@@ -7,6 +7,8 @@ import Footer from '@components/footer/Footer.astro';
 import Header from '@components/header/Header.astro';
 import style from './style.module.scss';
 import { ClientRouter } from 'astro:transitions';
+
+const { pathname } = Astro.url;
 ---
 
 <!doctype html>
@@ -23,7 +25,7 @@ import { ClientRouter } from 'astro:transitions';
 	</head>
 	<body class={style.body}>
 		<div>
-			<Header transition:persist />
+			<Header pathname={pathname} transition:persist />
 			<main>
 				<slot />
 				<Footer />
