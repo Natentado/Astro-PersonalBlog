@@ -1,8 +1,8 @@
 ---
 import '@styles/global.scss';
-import style from './style.module.scss';
 import Footer from '@components/footer/Footer.astro';
 import Header from '@components/header/Header.astro';
+import style from './style.module.scss';
 ---
 
 <!doctype html>
@@ -24,7 +24,7 @@ import Header from '@components/header/Header.astro';
 			</main>
 		</div>
 	</body>
-	<script>
+	<script is:inline>
 		const theme = (() => {
 			if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
 				return localStorage.getItem('theme');
@@ -43,6 +43,6 @@ import Header from '@components/header/Header.astro';
 			document.documentElement.classList.add('dark');
 		}
 		
-		window.localStorage.setItem('theme', theme as string);
+		window.localStorage.setItem('theme', theme);
 	</script>
 </html>
