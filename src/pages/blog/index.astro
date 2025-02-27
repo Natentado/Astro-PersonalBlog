@@ -35,9 +35,9 @@ const posts: Array<{data: IPost}> = await getCollection('blog');
                     return (
                         <li>
                             <a href={`/posts/${data.slug}`}>
-                                <h4 class="text-preset-5">
+                                <h2 class="text-preset-5">
                                     {data.title}
-                                </h4>
+                                </h2>
                             </a>
                             <p class="text-preset-8-italic">
                                 {formattedPublishData}
