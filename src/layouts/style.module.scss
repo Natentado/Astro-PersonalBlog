@@ -4,6 +4,7 @@
     overflow-x: hidden;
     padding: 16px;
     background-color: var(--neutral-100);
+    transition: background 0.3s;
 
     > div{
         display: flex;
